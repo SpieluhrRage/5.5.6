@@ -52,6 +52,7 @@ bool isPrime(int a) {
 		return false;
 	}
 }
+
 int main() {
 	setlocale(LC_ALL, "Rus");
 	srand(time(0));
@@ -76,9 +77,6 @@ int main() {
 			
 			for (int i = 0; i < num; i++) {
 				tmp = rand() % 100;
-				
-				
-				
 				vec.push_back(tmp);
 				inp << tmp << endl;
 			}
