@@ -3,6 +3,7 @@
 #include<time.h>
 #include<vector>
 #include <cmath>
+#include <string>
 using namespace std;
 
 int maxOD(int a, int b) {
@@ -85,11 +86,80 @@ int main() {
 	inp.close();
 	
 	inp.open("prime.txt");
+	
 
 	for (int i = 0; i < vec.size(); i++) {
 		if (isPrime(vec[i])) {
 			inp << vec[i] << endl;
+			
 		}
+	}
+
+
+	inp.close();
+
+	cout << "Содержание какого файла вы хотете просмотреть? \n1. Первый файл \n2. Второй файл \n3. Оба файла" << endl;
+	int opt;
+	cin >> opt;
+	cout << endl;
+	ifstream outp;
+
+	switch(opt) {
+	case 1:
+		
+		outp.open("inp.txt");
+		if (!outp.is_open()) {
+			cout << "Sorry, can't open file. ";
+		}
+		else {
+			int tmp;
+			while (outp >> tmp) {
+				cout << tmp << endl;
+			}
+			outp.close();
+		}
+		break;
+
+	case 2:
+		outp.open("prime.txt");
+			if (!outp.is_open()) {
+				cout << "Sorry, can't open file. ";
+			}
+			else {
+				int tmp;
+				while (outp >> tmp) {
+					cout << tmp << endl;
+				}
+				outp.close();
+			}
+		break;
+		
+	case 3:
+		cout << "Первый файл: " << endl;
+		outp.open("inp.txt");
+		if (!outp.is_open()) {
+			cout << "Sorry, can't open file. ";
+		}
+		else {
+			int tmp;
+			while (outp >> tmp) {
+				cout << tmp << endl;
+			}
+			outp.close();
+		}
+		cout << endl << "Второй файл: " << endl;
+		outp.open("prime.txt");
+		if (!outp.is_open()) {
+			cout << "Sorry, can't open file. ";
+		}
+		else {
+			int tmp;
+			while (outp >> tmp) {
+				cout << tmp << endl;
+			}
+			outp.close();
+		}
+		break;
 	}
 
 }
