@@ -94,7 +94,42 @@ int main() {
 			
 		}
 	}
-
+	int max = *max_element(vec.begin(), vec.end());
+	bool fl = true;
+	for (int i = 2; i <= max; i++) {
+		for (int j = 0; j < vec.size(); j++) {
+			if (vec[j] % i != 0) {
+				fl = false;
+				break;
+			}
+		}
+		if (fl) {
+			cout << "Минимальный общий делитель: " << i << endl;
+			break;
+		}
+		else {
+			fl = true;
+		}
+		if (i == max) {
+			cout << "Наименьший общий делитель: 1 " << endl;
+		}
+	}
+	for (int i = max; i >= 1; i--) {
+		for (int j = 0; j < vec.size(); j++) {
+			if (vec[j] % i != 0) {
+				fl = false;
+				break;
+			}
+		}
+		if (fl) {
+			cout << "Наибольший общий делитель: " << i << endl;
+			break;
+		}
+		else {
+			fl = true;
+		}
+		
+	}
 
 	inp.close();
 
